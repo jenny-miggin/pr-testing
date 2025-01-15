@@ -12,7 +12,15 @@ jobs:
           command: |
             echo "I'm here again"
   test:
-    type: no-op 
+    docker:
+      - image: cimg/base:current-22.04
+    resource_class: medium
+    steps:
+      - checkout
+      - run: 
+          name: meet requirement
+          command: |
+            echo "I'm here again"
 
 workflows:
   build-and-test:
